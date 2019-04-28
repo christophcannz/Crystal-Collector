@@ -1,0 +1,25 @@
+body {
+    background-image: url("../images/gplaypattern.png");
+}
+
+.navbar {
+    background-color: black;
+}
+
+.container {
+    background-color: black;
+    height: 100%;
+    
+}
+
+.crystals {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.crystal {
+    background: 1px slateblue;
+    height: 100px;
+    width: 100px;
+}
