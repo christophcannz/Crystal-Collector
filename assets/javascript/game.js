@@ -10,22 +10,71 @@ console.log("Hello World")
 var random_result;
 var lose;
 var win;
+var previous = 0;
 
-random_result = Math.floor(Math.random() * 69 ) + 30;
+//-------------------------------------------------------------
 
-$("#result").html("Random Result: " + random_result);
+var startGame = function() {
 
-for(var i = 0; i < 4; i++) {
+    $(".crystals").empty();
 
-    var random = Math.floor(Math.random() * 11) + 1;
-    
-    var crystal = $("<div>");
-        crystal.attr({
-            "class": 'crystal', "rondo": random
-        });
-    $(".crystals").append(crystal);
+    random_result = Math.floor(Math.random() * 69 ) + 30;
+
+    $("#result").html("Random Result: " + random_result);
+
+    for(var i = 0; i < 4; i++) {
+
+        var random = Math.floor(Math.random() * 11) + 1;
+
+        
+        
+        var crystal = $("<div>");
+            crystal.attr({
+                "class": 'crystal', "rondo": random
+            });
+
+            crystal.html(random);
+
+        $(".crystals").append(crystal);
+    }
 }
 
-$(".crystal").on("click", function (){
-    console.log($(this).attr("rondo"));
+//-------------------------------------------------------------
+
+startGame();
+
+var restart = function() {
+
+}
+
+$(document).on("click", ".crystal", function () {
+    var result;
+
+    var num = parseInt($(this).attr("rondo"));
+
+    previous += num;
+
+    if(previous > random_result) {
+
+        lose--;
+
+        $("#lose").html(lose);
+
+        previous = 0;
+
+        startGame();
+    }
+    else if(previous === random_result){
+
+        win++;
+
+        $("#win").html(win);
+
+        previous = 0;
+
+        startGame();
+    }
+
+    console.log(previous);
+
 });
