@@ -1,6 +1,6 @@
 var random_result;
-var lose;
-var win;
+var lose = 0;
+var win = 0;
 var previous = 0;
 
 //-------------------------------------------------------------
