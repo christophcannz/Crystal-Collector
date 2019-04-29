@@ -16,22 +16,27 @@
 <body>
         <nav class="navbar navbar-dark bg-priamary">
             <span class="navbar-brand mb-0 h1">Crystals Collector!</span>
+            <p id="previous" style="color:chartreuse; font-family: 'Courier New', Courier, monospace; font-weight: bold; font-size: 18pt;"></p>
         </nav>
-            
+        
+    <div class="container" style="background: rgba(255, 255, 255, 0); height: 100%; margin-top: 25px;">
+        
         <h6>
             You shall be granted a random number at the commencement of the game. There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score. You win the game by matching your total score to the random number. The value of each crystal is hidden from you until you click on it. Every time the game starts, the value of each crystal will change.
         </h6>
 
-        <p id="result"></p>
+        <p id="result" style="color:blue;"></p>
 
         <div class="crystals">
 
         </div>
 
-        <p id="previous"></p>
+        
 
-        <p id="win"></p>
-        <p id="lose"></p>
+        <p id="win" style="color: green; font-weight:bold; font-size: 16pt; margin-top: 10px;"></p>
+        <p id="lose" style="color: red; font-weight:bold; font-size: 16pt;"></p>
+    
+    </div>
 
 
     <script type="text/javascript" src="./assets/javascript/game.js"></script>

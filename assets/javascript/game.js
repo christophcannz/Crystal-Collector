@@ -13,7 +13,7 @@ var startGame = function() {
 
     random_result = Math.floor(Math.random() * 69 ) + 30;
 
-    $("#result").html("Random Result: " + random_result); //added to DOM
+    $("#result").html("Match this Number: " + random_result); //added to DOM
 
     for(var i = 0; i < 4; i++) { //4 times to create our 4 crystals
 
@@ -60,7 +60,7 @@ $(document).on("click", ".crystal", function () {
 
         lose--;
 
-        $("#lose").html("You've Lost!: " + lose); //Connected with the HTML ID #lose
+        $("#lose").html("LOSSES: " + lose); //Connected with the HTML ID #lose
 
         previous = 0;
 
@@ -70,7 +70,7 @@ $(document).on("click", ".crystal", function () {
 
         win++;
 
-        $("#win").html("Victory: " + win); //Connected with the HTML ID #win
+        $("#win").html("WINS: " + win); //Connected with the HTML ID #win
 
         previous = 0;
 
