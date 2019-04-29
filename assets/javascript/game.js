@@ -1,12 +1,3 @@
-console.log("Hello World")
-
-// 1. A game with four crystals
-// 2. Every crystal must have a random number between 1-12
-// 3. That random number will regenerate each time you win or lose.
-// 4. When clicking any crystal, it should add to the previous result until it equals the total score.
-// 5. If it is NOT EQUAL, then we start over.
-// 6. If it IS EQUAL, we INCREMENT a win counter.
-
 var random_result;
 var lose;
 var win;
@@ -16,15 +7,17 @@ var previous = 0;
 
 var startGame = function() {
 
-    $(".crystals").empty();
+    $(".crystals").empty(); //this generates a new element when pages reloads
+
+    var images = ["./assets/images/turq.png", "./assets/images/green.png", "./assets/images/yellow.png", "./assets/images/orange.png"];
 
     random_result = Math.floor(Math.random() * 69 ) + 30;
 
-    $("#result").html("Random Result: " + random_result);
+    $("#result").html("Random Result: " + random_result); //added to DOM
 
-    for(var i = 0; i < 4; i++) {
+    for(var i = 0; i < 4; i++) { //4 times to create our 4 crystals
 
-        var random = Math.floor(Math.random() * 11) + 1;
+        var random = Math.floor(Math.random() * 11) + 1; //generates a random number
 
         
         
@@ -33,11 +26,18 @@ var startGame = function() {
                 "class": 'crystal', "rondo": random
             });
 
-            crystal.html(random);
+            crystal.css({
+                "background-image":"url('" + images[i] + "')",
+                "background-size":"cover"
+            });
 
         $(".crystals").append(crystal);
     }
+
+    $("#previous").html("Total: " + previous);
 }
+
+
 
 //-------------------------------------------------------------
 
@@ -54,25 +54,27 @@ $(document).on("click", ".crystal", function () {
 
     previous += num;
 
+    $("#previous").html("Total: " + previous);
+
     if(previous > random_result) {
 
         lose--;
 
-        $("#lose").html(lose);
+        $("#lose").html("You've Lost!: " + lose); //Connected with the HTML ID #lose
 
         previous = 0;
 
-        startGame();
+        startGame(); //game restarts after loss
     }
     else if(previous === random_result){
 
         win++;
 
-        $("#win").html(win);
+        $("#win").html("Victory: " + win); //Connected with the HTML ID #win
 
         previous = 0;
 
-        startGame();
+        startGame(); //game restarts after win
     }
 
     console.log(previous);

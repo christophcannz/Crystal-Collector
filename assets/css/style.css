@@ -19,7 +19,7 @@ body {
 }
 
 .crystal {
-    background: 1px slateblue;
     height: 100px;
     width: 100px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
